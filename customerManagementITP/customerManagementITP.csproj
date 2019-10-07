@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CCA0887-FD58-479A-8689-9A8203E322E4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>customerManagementITP</RootNamespace>
+    <AssemblyName>customerManagementITP</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddAttendance.cs" />
+    <Compile Include="AddEmployee.cs" />
+    <Compile Include="AddSalary.cs" />
+    <Compile Include="BlueLotusHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlueLotusHome.designer.cs">
+      <DependentUpon>BlueLotusHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blue_Lotus_HotelDataSet.cs">
+      <DependentUpon>Blue_Lotus_HotelDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Blue_Lotus_HotelDataSet.designer.cs">
+      <DependentUpon>Blue_Lotus_HotelDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blue_Lotus_HotelDataSet1.Designer.cs" />
+    <Compile Include="Blue_Lotus_HotelDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blue_Lotus_HotelDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Blue_Lotus_HotelDataSet2.Designer.cs" />
+    <Compile Include="Blue_Lotus_HotelDataSet3.Designer.cs" />
+    <Compile Include="Blue_Lotus_HotelDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blue_Lotus_HotelDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CaterCustomerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaterCustomerOrder.designer.cs">
+      <DependentUpon>CaterCustomerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CateringDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CateringDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CateringMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CateringMain.designer.cs">
+      <DependentUpon>CateringMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CateringOrderReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CateringOrderReportForm.Designer.cs">
+      <DependentUpon>CateringOrderReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart.cs" />
+    <Compile Include="CheckedCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckedCustomerForm.Designer.cs">
+      <DependentUpon>CheckedCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckedOut.cs" />
+    <Compile Include="CleaningEquipment.cs" />
+    <Compile Include="Connect.cs" />
+    <Compile Include="Customer Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer Login.designer.cs">
+      <DependentUpon>Customer Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs" />
+    <Compile Include="Damage.cs" />
+    <Compile Include="damagehall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="damagehall.designer.cs">
+      <DependentUpon>damagehall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Damage_items.cs" />
+    <Compile Include="Drink.cs" />
+    <Compile Include="Ems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ems.designer.cs">
+      <DependentUpon>Ems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment.cs" />
+    <Compile Include="EventType.cs" />
+    <Compile Include="Expences.cs" />
+    <Compile Include="ExpenditureDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpenditureDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenditureReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenditureReportForm.Designer.cs">
+      <DependentUpon>ExpenditureReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenditures.cs" />
+    <Compile Include="ExpenseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseReportForm.Designer.cs">
+      <DependentUpon>ExpenseReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses.cs" />
+    <Compile Include="Familymember.cs" />
+    <Compile Include="CustomerAndRoomManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerAndRoomManagement.Designer.cs">
+      <DependentUpon>CustomerAndRoomManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceManagement.designer.cs">
+      <DependentUpon>FinanceManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs" />
+    <Compile Include="FoodMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FoodMenu.designer.cs">
+      <DependentUpon>FoodMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLegerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralLegerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLegerReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneralLegerReportForm.Designer.cs">
+      <DependentUpon>GeneralLegerReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetGymUsageReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetGymUsageReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GetGymUsageReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetGymUsageReportForm.Designer.cs">
+      <DependentUpon>GetGymUsageReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GymCharges.cs" />
+    <Compile Include="GymEquipment.cs" />
+    <Compile Include="GymSupplier.cs" />
+    <Compile Include="GymUsage.cs" />
+    <Compile Include="HallEquipment.cs" />
+    <Compile Include="HallType.cs" />
+    <Compile Include="Hall_details.cs" />
+    <Compile Include="hall_Information_HRS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hall_Information_HRS.designer.cs">
+      <DependentUpon>hall_Information_HRS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRSreportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRSreportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HRSreportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRSreportForm.Designer.cs">
+      <DependentUpon>HRSreportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRS_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRS_details.designer.cs">
+      <DependentUpon>HRS_details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRS_filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRS_filter.designer.cs">
+      <DependentUpon>HRS_filter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncomeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeReportForm.Designer.cs">
+      <DependentUpon>IncomeReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Incomes.cs" />
+    <Compile Include="InventoryExpencesDatSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryExpencesDatSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryExpensesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryExpensesReportForm.Designer.cs">
+      <DependentUpon>InventoryExpensesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen.cs" />
+    <Compile Include="KMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KMS.designer.cs">
+      <DependentUpon>KMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MakeReports.cs" />
+    <Compile Include="Meal.cs" />
+    <Compile Include="MealOrderReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MealOrderReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MealOrderReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MealOrderReportForm.Designer.cs">
+      <DependentUpon>MealOrderReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OlderRecords.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="payments.cs" />
+    <Compile Include="Personal_details.cs" />
+    <Compile Include="Products.cs" />
+    <Compile Include="ProfitCalculations.cs" />
+    <Compile Include="ProfitLostDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProfitLostDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProfitLostReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfitLostReportForm.Designer.cs">
+      <DependentUpon>ProfitLostReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register Customer.designer.cs">
+      <DependentUpon>Register Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestLeave.cs" />
+    <Compile Include="RoomAddNewCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomAddNewCategorie.Designer.cs" />
+    <Compile Include="RoomAddNewCategorie1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoomAddNewCategorie.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomEquipment.cs" />
+    <Compile Include="Rooms.cs" />
+    <Compile Include="RoomType.cs" />
+    <Compile Include="salaryReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>salaryReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="salaryReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salaryReportForm.Designer.cs">
+      <DependentUpon>salaryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="SpaAppointmentDetailsReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpaAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SpaAppointmentReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpaAppointmentReportForm.Designer.cs">
+      <DependentUpon>SpaAppointmentReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpaCompletedAppointmentDetailsReportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpaCompletedAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SpaCompletedAppointmentsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpaCompletedAppointmentsReportForm.Designer.cs">
+      <DependentUpon>SpaCompletedAppointmentsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spa_Appointment.cs" />
+    <Compile Include="Spa_Customer_Charges.cs" />
+    <Compile Include="Spa_Employee.cs" />
+    <Compile Include="Spa_Equipment.cs" />
+    <Compile Include="SPA_MANAGEMENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPA_MANAGEMENT.designer.cs">
+      <DependentUpon>SPA_MANAGEMENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Spa_Products.cs" />
+    <Compile Include="Spa_Service.cs" />
+    <Compile Include="Spa_Supplier.cs" />
+    <Compile Include="StockManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockManagement.designer.cs">
+      <DependentUpon>StockManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs" />
+    <Compile Include="Supplier_Spa.cs" />
+    <Compile Include="Targets.cs" />
+    <Compile Include="Theme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Theme.designer.cs">
+      <DependentUpon>Theme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeMenu.designer.cs">
+      <DependentUpon>ThemeMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trainer.cs" />
+    <Compile Include="transportation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transportation.designer.cs">
+      <DependentUpon>transportation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transpotation.cs" />
+    <Compile Include="UserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLogin.designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BlueLotusHome.resx">
+      <DependentUpon>BlueLotusHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaterCustomerOrder.resx">
+      <DependentUpon>CaterCustomerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CateringMain.resx">
+      <DependentUpon>CateringMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CateringOrderReport.rdlc" />
+    <EmbeddedResource Include="CateringOrderReportForm.resx">
+      <DependentUpon>CateringOrderReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedCustomerForm.resx">
+      <DependentUpon>CheckedCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckedCustomerFormReport.rdlc" />
+    <EmbeddedResource Include="Customer Login.resx">
+      <DependentUpon>Customer Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerAndRoomManagement.resx">
+      <DependentUpon>CustomerAndRoomManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="damagehall.resx">
+      <DependentUpon>damagehall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ems.resx">
+      <DependentUpon>Ems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenditureReport.rdlc" />
+    <EmbeddedResource Include="ExpenditureReportForm.resx">
+      <DependentUpon>ExpenditureReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseReport.rdlc" />
+    <EmbeddedResource Include="ExpenseReportForm.resx">
+      <DependentUpon>ExpenseReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceManagement.resx">
+      <DependentUpon>FinanceManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodMenu.resx">
+      <DependentUpon>FoodMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneralLegerReport.rdlc" />
+    <EmbeddedResource Include="GeneralLegerReportForm.resx">
+      <DependentUpon>GeneralLegerReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetGymUsageReport.rdlc" />
+    <EmbeddedResource Include="GetGymUsageReportForm.resx">
+      <DependentUpon>GetGymUsageReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hall_Information_HRS.resx">
+      <DependentUpon>hall_Information_HRS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRSreport.rdlc" />
+    <EmbeddedResource Include="HRSreportForm.resx">
+      <DependentUpon>HRSreportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRS_details.resx">
+      <DependentUpon>HRS_details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRS_filter.resx">
+      <DependentUpon>HRS_filter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeReport.rdlc" />
+    <EmbeddedResource Include="IncomeReportForm.resx">
+      <DependentUpon>IncomeReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryExpensesReport.rdlc" />
+    <EmbeddedResource Include="InventoryExpensesReportForm.resx">
+      <DependentUpon>InventoryExpensesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KMS.resx">
+      <DependentUpon>KMS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MealOrderReport.rdlc" />
+    <EmbeddedResource Include="MealOrderReportForm.resx">
+      <DependentUpon>MealOrderReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfitLostReport.rdlc" />
+    <EmbeddedResource Include="ProfitLostReportForm.resx">
+      <DependentUpon>ProfitLostReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Register Customer.resx">
+      <DependentUpon>Register Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomAddNewCategorie.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RoomAddNewCategorie1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salaryReport.rdlc" />
+    <EmbeddedResource Include="salaryReportForm.resx">
+      <DependentUpon>salaryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpaAppointmentReport.rdlc" />
+    <EmbeddedResource Include="SpaAppointmentReportForm.resx">
+      <DependentUpon>SpaAppointmentReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpaCompletedAppointmentsReport.rdlc" />
+    <EmbeddedResource Include="SpaCompletedAppointmentsReportForm.resx">
+      <DependentUpon>SpaCompletedAppointmentsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPA_MANAGEMENT.resx">
+      <DependentUpon>SPA_MANAGEMENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockManagement.resx">
+      <DependentUpon>StockManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Theme.resx">
+      <DependentUpon>Theme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemeMenu.resx">
+      <DependentUpon>ThemeMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transportation.resx">
+      <DependentUpon>transportation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Blue_Lotus_HotelDataSet.xsd" />
+    <None Include="Blue_Lotus_HotelDataSet1.xsd" />
+    <None Include="Blue_Lotus_HotelDataSet11.xsc">
+      <DependentUpon>Blue_Lotus_HotelDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Blue_Lotus_HotelDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Blue_Lotus_HotelDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Blue_Lotus_HotelDataSet11.xss">
+      <DependentUpon>Blue_Lotus_HotelDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Blue_Lotus_HotelDataSet2.xsd" />
+    <None Include="Blue_Lotus_HotelDataSet3.xsd" />
+    <None Include="Blue_Lotus_HotelDataSet5.xsc">
+      <DependentUpon>Blue_Lotus_HotelDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="Blue_Lotus_HotelDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Blue_Lotus_HotelDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Blue_Lotus_HotelDataSet5.xss">
+      <DependentUpon>Blue_Lotus_HotelDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="CateringDataset.xsc">
+      <DependentUpon>CateringDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CateringDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CateringDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CateringDataset.xss">
+      <DependentUpon>CateringDataset.xsd</DependentUpon>
+    </None>
+    <None Include="ExpenditureDataSet.xsc">
+      <DependentUpon>ExpenditureDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ExpenditureDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExpenditureDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ExpenditureDataSet.xss">
+      <DependentUpon>ExpenditureDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ExpenseDataSet.xsc">
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ExpenseDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ExpenseDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ExpenseDataSet.xss">
+      <DependentUpon>ExpenseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GeneralLegerDataSet.xsc">
+      <DependentUpon>GeneralLegerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GeneralLegerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GeneralLegerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GeneralLegerDataSet.xss">
+      <DependentUpon>GeneralLegerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GetGymUsageReportDataset.xsc">
+      <DependentUpon>GetGymUsageReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="GetGymUsageReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GetGymUsageReportDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GetGymUsageReportDataset.xss">
+      <DependentUpon>GetGymUsageReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="HRSreportDataSet.xsc">
+      <DependentUpon>HRSreportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HRSreportDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HRSreportDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HRSreportDataSet.xss">
+      <DependentUpon>HRSreportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IncomeDataSet.xsc">
+      <DependentUpon>IncomeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IncomeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncomeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="IncomeDataSet.xss">
+      <DependentUpon>IncomeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryExpencesDatSet.xsc">
+      <DependentUpon>InventoryExpencesDatSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryExpencesDatSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventoryExpencesDatSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventoryExpencesDatSet.xss">
+      <DependentUpon>InventoryExpencesDatSet.xsd</DependentUpon>
+    </None>
+    <None Include="MealOrderReportDataset.xsc">
+      <DependentUpon>MealOrderReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="MealOrderReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MealOrderReportDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MealOrderReportDataset.xss">
+      <DependentUpon>MealOrderReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="ProfitLostDataSet.xsc">
+      <DependentUpon>ProfitLostDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProfitLostDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProfitLostDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ProfitLostDataSet.xss">
+      <DependentUpon>ProfitLostDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="salaryReportDataset.xsc">
+      <DependentUpon>salaryReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="salaryReportDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>salaryReportDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="salaryReportDataset.xss">
+      <DependentUpon>salaryReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="SpaAppointmentDetailsReportDataSet.xsc">
+      <DependentUpon>SpaAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SpaAppointmentDetailsReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SpaAppointmentDetailsReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SpaAppointmentDetailsReportDataSet.xss">
+      <DependentUpon>SpaAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SpaCompletedAppointmentDetailsReportDataSet.xsc">
+      <DependentUpon>SpaCompletedAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SpaCompletedAppointmentDetailsReportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SpaCompletedAppointmentDetailsReportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SpaCompletedAppointmentDetailsReportDataSet.xss">
+      <DependentUpon>SpaCompletedAppointmentDetailsReportDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
